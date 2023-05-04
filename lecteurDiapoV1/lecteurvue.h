@@ -20,6 +20,15 @@ public:
 private:
     Ui::LecteurVue *ui;
 
+private slots: //il en faut 6
+    void avancer();
+    void reculer();
+    void lancer();
+    void charger();
+    void modifVitesse();
+    void arreter();
+    void propos();
+
 
 };
 #endif // LECTEURVUE_H

@@ -17,7 +17,7 @@
    <property name="enabled">
     <bool>true</bool>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_5">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -70,6 +70,13 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>future image</string>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="horizontalSpacer_3">
@@ -173,17 +180,25 @@
    </property>
    <widget class="QMenu" name="menuPatram_tre">
     <property name="title">
-     <string>Patramètre</string>
+     <string>Paramètre</string>
     </property>
-    <addaction name="actionCharger_diaporama"/>
+    <addaction name="actionCharger"/>
     <addaction name="separator"/>
-    <addaction name="actionVitesse_de_d_filement"/>
+    <addaction name="actionVitesse"/>
    </widget>
    <widget class="QMenu" name="menuAide">
     <property name="title">
      <string>Aide</string>
     </property>
+    <addaction name="actionPropos"/>
    </widget>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <addaction name="menuFichier"/>
    <addaction name="menuPatram_tre"/>
    <addaction name="menuAide"/>
   </widget>
@@ -192,14 +207,24 @@
     <cursorShape>CrossCursor</cursorShape>
    </property>
   </widget>
-  <action name="actionCharger_diaporama">
+  <action name="actionCharger">
    <property name="text">
     <string>Charger diaporama</string>
    </property>
   </action>
-  <action name="actionVitesse_de_d_filement">
+  <action name="actionVitesse">
    <property name="text">
     <string>Vitesse de défilement</string>
+   </property>
+  </action>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+  <action name="actionPropos">
+   <property name="text">
+    <string>À propos de ...</string>
    </property>
   </action>
  </widget>
