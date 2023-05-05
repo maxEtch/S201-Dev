@@ -16,10 +16,6 @@ LecteurVue::LecteurVue(QWidget *parent)
     connect(ui->actionQuitter,SIGNAL(triggered()),this,SLOT(close()));          //ok
     connect(ui->actionPropos,SIGNAL(triggered()),this,SLOT(propos()));          //ok
 
-    connect(ui->cCategorie1,SIGNAL(clicked(bool)),this,SLOT(categorie1(bool)));
-    connect(ui->cCategorie2,SIGNAL(clicked(bool)),this,SLOT(categorie2(bool)));
-    connect(ui->cCategorie3,SIGNAL(clicked(bool)),this,SLOT(categorie3(bool)));
-
     creerBarStatus(true);
 }
 
@@ -83,28 +79,4 @@ void LecteurVue::propos()
      maDlg.show();              //affiche la boite de dialogue
 
      qDebug() << "Le bouton À propos de marche";
-}
-
-void LecteurVue::categorie1(bool etat)
-{
-    if(etat)
-    {
-        qDebug() << "La checkbox categorie 1 marche";
-    }
-}
-
-void LecteurVue::categorie2(bool etat)
-{
-    if(etat)
-    {
-        qDebug() << "La checkbox categorie 2 marche";
-    }
-}
-
-void LecteurVue::categorie3(bool etat)
-{
-    if(etat)
-    {
-        qDebug() << "La checkbox categorie 3 marche";
-    }
 }

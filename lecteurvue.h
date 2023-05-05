@@ -31,10 +31,6 @@ private slots:
     void arreter(); //change le mode de défilement en manuel
     void propos();  //affiche une boîte de dialogue pour aider l'utilisateur
 
-    void categorie1(bool);
-    void categorie2();
-    void categorie3();
-
 
 };
 #endif // LECTEURVUE_H

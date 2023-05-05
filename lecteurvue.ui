@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>842</width>
-    <height>526</height>
+    <width>748</width>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,61 +19,23 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,1,0,0,0">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,3,4">
-        <item>
-         <widget class="QLabel" name="labelTitrDipao">
-          <property name="text">
-           <string>Titre du diapo : </string>
-          </property>
-         </widget>
-        </item>
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="3">
         <item>
          <widget class="QLabel" name="lTitreDiapo">
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>titreDiapo</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
-        </item>
-        <item>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="0">
-           <widget class="QLabel" name="labelTitre">
-            <property name="text">
-             <string>Titre image :</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QCheckBox" name="cCategorie1">
-            <property name="text">
-             <string>Catégorie 1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QCheckBox" name="cCategorie2">
-            <property name="text">
-             <string>Catégorie 2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QCheckBox" name="cCategorie3">
-            <property name="text">
-             <string>Catégorie 2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="lTitreImage">
-            <property name="text">
-             <string>titreImage</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
        </layout>
       </item>
@@ -91,7 +53,22 @@
        </spacer>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <widget class="QLabel" name="lTitreImage">
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>titreImage</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,1,0,0">
         <item>
          <widget class="QPushButton" name="bPrecedent">
           <property name="text">
@@ -149,7 +126,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>cartesDisney/Disney_0.gif</pixmap>
+           <pixmap>cartesDisney/Disney_6.gif</pixmap>
           </property>
          </widget>
         </item>
@@ -205,6 +182,16 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Catégorie : categorie</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="verticalSpacer">
@@ -279,7 +266,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>842</width>
+     <width>748</width>
      <height>22</height>
     </rect>
    </property>
