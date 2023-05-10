@@ -20,12 +20,12 @@ public:
     ~LecteurVue();  //destructeur
     void creerBarStatus(bool);  //permet de changer l'affichage dans la bar de status
 
-
     Image* imageCourante();     // retourne le pointeur vers l'image courante
     unsigned int numDiaporamaCourant(); //retourne le numero de l'image
     void afficher(); //affiche les informations sur lecteur-diaporama et image courante
     unsigned int nbImages();    //affiche la taille de _diaporama
     void changerDiaporama(unsigned int pNumDiaporama);    //a faire    permet de choisir un diaporama, 0 si aucun diaporama souhaité
+
 
 
 
@@ -36,7 +36,7 @@ private:
     Diaporama _diaporama;            // pointeurs vers les images du diaporama
     unsigned int _posImageCourante;
 
-private slots:
+public slots:
     void avancer(); //fait défiler le diaporama vers l'image suivante
     void reculer(); //fait défiler le diaporama vers l'image suivante
     void lancer();  //change le mode en automatique
