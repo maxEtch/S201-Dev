@@ -2,12 +2,13 @@
 #include "qmessagebox.h"
 #include "ui_lecteurvue.h"
 #include "image.h"
+#include "QString"
 
 LecteurVue::LecteurVue(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LecteurVue)
 {
-    _diaporama.clear();
+
     ui->setupUi(this);
     connect(ui->bSuivant,SIGNAL(clicked()),this, SLOT(avancer()));              //ok
     connect(ui->bPrecedent,SIGNAL(clicked()),this, SLOT(reculer()));            //ok
@@ -17,6 +18,7 @@ LecteurVue::LecteurVue(QWidget *parent)
     connect(ui->actionVitesse,SIGNAL(triggered()),this,SLOT(modifVitesse()));   //ok
     connect(ui->actionQuitter,SIGNAL(triggered()),this,SLOT(close()));          //ok
     connect(ui->actionPropos,SIGNAL(triggered()),this,SLOT(propos()));          //ok
+    connect(ui->actionEnlever,SIGNAL(triggered()),this,SLOT(viderDiaporama()));
 
     creerBarStatus(true);
 
@@ -89,32 +91,39 @@ void LecteurVue::charger() //marche
 
     Image* imageACharger;
 
+    imageACharger = new Image(3, "personne", "Blanche Neige", ":/lecteurDiapoV2/Disney_4.gif");
+    _diaporama.push_back(imageACharger);
+    imageACharger = new Image(2, "personne", "Cendrillon", ":/lecteurDiapoV2/Disney_45.gif");
+    _diaporama.push_back(imageACharger);
+    imageACharger = new Image(4, "animal", "Mickey", ":/lecteurDiapoV2/Disney_19.gif");
+    _diaporama.push_back(imageACharger);
+    imageACharger = new Image(1, "animal", "Bambi", ":/lecteurDiapoV2/Disney_3.gif");
+    _diaporama.push_back(imageACharger);
 
-    imageACharger = new Image(3, "personne", "Blanche Neige", "C:\\cartesDisney\\carteDisney2.gif");
-    _diaporama.push_back(imageACharger);
-    imageACharger = new Image(2, "personne", "Cendrillon", "C:\\cartesDisney\\carteDisney4.gif");
-    _diaporama.push_back(imageACharger);
-    imageACharger = new Image(4, "animal", "Mickey", "C:\\cartesDisney\\carteDisney1.gif");
-    _diaporama.push_back(imageACharger);
-    imageACharger = new Image(1, "personne", "Grincheux", "C:\\cartesDisney\\carteDisney1.gif");
-    _diaporama.push_back(imageACharger);
-
-     bool estTrie = true;
-     while (estTrie)
-     {
-        estTrie = false;
-        for (int var = 0; var < static_cast<int>(_diaporama.size()); var++)
-        {
-            if (_diaporama[var]->getRang() > _diaporama[var+1]->getRang())
-            {
-                Image val = *_diaporama[var];
-                *_diaporama[var] = *_diaporama[var +1];
-                *_diaporama[var+1] = val;
-                estTrie = true;
-            }
+    bool estTrie = true;
+    while (estTrie)
+    {
+       estTrie = false;
+       for (int var = 0; var < static_cast<int>(_diaporama.size()); var++)
+       {
+           if (_diaporama[var]->getRang() > _diaporama[var+1]->getRang())
+           {
+               Image val = *_diaporama[var];
+               *_diaporama[var] = *_diaporama[var +1];
+               *_diaporama[var+1] = val;
+               estTrie = true;
+           }
         }
      }
+
+     qDebug() << "Les images sont triées";
+
      ui->lImageMax->setNum(static_cast<int>(_diaporama.size()));
+
+     qDebug() << "on met le numéro de l'image";
+     qDebug() << "on essaye d'afficher";
+     afficher();
+     qDebug() << "on affiche";
 }
 
 void LecteurVue::modifVitesse() //marche
@@ -133,15 +142,31 @@ void LecteurVue::propos()
 
 void LecteurVue::afficher()
 {
-    qDebug() << "afficher() ce lance";
-    QString text = QString::fromStdString(imageCourante()->getCategorie());
-    ui->lCategorie->setText(text);
 
-    text = QString::fromStdString(imageCourante()->getTitre());
+
+
+    string str = imageCourante()->getCategorie();
+    QString qstr = QString::fromStdString(str);
+
+    ui->lCategorie->setText(qstr);
+
+
+
+    QString text = QString::fromStdString(imageCourante()->getTitre());
     ui->lTitreImage->setText(text);
+
 
     int nombre = imageCourante()->getRang();
     ui->lImageActuel->setNum(nombre);
+
+
+
+    QString chemin = QString::fromStdString(imageCourante()->getChemin());
+    QImage cheminImage (chemin);
+    ui->image->setPixmap(QPixmap::fromImage(cheminImage));
+    ui->image->show();
+
+
 }
 
 unsigned int LecteurVue::nbImages()
@@ -174,12 +199,5 @@ unsigned int LecteurVue::numDiaporamaCourant()
 
 void LecteurVue::viderDiaporama()
 {
-    if (nbImages() > 0)
-    {
-        unsigned int taille = nbImages();
-        for (unsigned int i = 0; i < taille; i++)
-        {
-            _diaporama.pop_back();
-        }
-    }
+    _diaporama.erase(_diaporama.cbegin(),_diaporama.cend());
 }

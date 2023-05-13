@@ -283,6 +283,8 @@
     <addaction name="actionCharger"/>
     <addaction name="separator"/>
     <addaction name="actionVitesse"/>
+    <addaction name="separator"/>
+    <addaction name="actionEnlever"/>
    </widget>
    <widget class="QMenu" name="menuAide">
     <property name="title">
@@ -323,6 +325,11 @@
   <action name="actionPropos">
    <property name="text">
     <string>À propos de ...</string>
+   </property>
+  </action>
+  <action name="actionEnlever">
+   <property name="text">
+    <string>Enlever le diaporama</string>
    </property>
   </action>
  </widget>
