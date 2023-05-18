@@ -88,7 +88,9 @@ void LecteurVue::reculer() //marche
 
 void LecteurVue::lancer() //marche
 {
-    qDebug() << "Le bouton lancer marche";
+    _posImageCourante = 0;
+    afficher();
+
     ui->bArreterDiapo->setEnabled(true);    //active le bouton Arrèter diaporama
     setEtat(false);         //Met l'état en automatique
     creerBarStatus();       //Change la bar de status pour afficher le mode automatique
@@ -212,7 +214,8 @@ unsigned int LecteurVue::numDiaporamaCourant()
 
 void LecteurVue::viderDiaporama()
 {
-    qDebug() << "le vidage se lance";
+
+    arreter();
     _diaporama.clear();
     afficher();
 
