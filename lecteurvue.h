@@ -50,6 +50,7 @@ public slots:
     void triBulle(Diaporama &); //tri les images présentes dans le diaporama
     bool getEtat();        //retourne l'état de la variable estManuel
     void setEtat(bool);    //modifie le bool _estManuel
+    void avancerAuto();   //fais avancer le diaporama quand le mode auto est activé
 
 };
 #endif // LECTEURVUE_H

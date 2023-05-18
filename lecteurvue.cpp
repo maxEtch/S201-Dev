@@ -7,9 +7,10 @@ LecteurVue::LecteurVue(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LecteurVue)
 {
-    QTimer *timer = new QTimer(this);
+    timer = new QTimer(this);
 
     ui->setupUi(this);
+
     connect(ui->bSuivant,SIGNAL(clicked()),this, SLOT(avancer()));  //ok
     connect(ui->bSuivant,SIGNAL(clicked()),this, SLOT(arreter()));  //essaye d'avancer dans le diapo et arrète le mode auto
 
@@ -23,7 +24,7 @@ LecteurVue::LecteurVue(QWidget *parent)
     connect(ui->actionQuitter,SIGNAL(triggered()),this,SLOT(close()));          //ok
     connect(ui->actionPropos,SIGNAL(triggered()),this,SLOT(propos()));          //ok
     connect(ui->actionEnlever,SIGNAL(triggered()),this,SLOT(viderDiaporama())); //ok
-    //connect(timer, SIGNAL(timeout()),this,SLOT());
+    connect(timer, SIGNAL(timeout()),this,SLOT(avancerAuto()));
 
     creerBarStatus();
 
@@ -92,6 +93,7 @@ void LecteurVue::lancer() //marche
     setEtat(false);         //Met l'état en automatique
     creerBarStatus();       //Change la bar de status pour afficher le mode automatique
 
+    timer->start(2000); //on lance le chronomètre
 }
 
 void LecteurVue::arreter() //marche
@@ -100,6 +102,8 @@ void LecteurVue::arreter() //marche
     ui->bArreterDiapo->setEnabled(false);   //Désactive le bouton Arreter le diaporama
     setEtat(true);         //Met l'état en manuel
     creerBarStatus();       //Change la bar de status pour afficher le mode automatique
+
+    timer->stop();
 }
 
 void LecteurVue::charger() //marche
@@ -247,4 +251,15 @@ bool LecteurVue::getEtat()
 void LecteurVue::setEtat(bool estManuel)
 {
     _estManuel = estManuel;
+}
+
+void LecteurVue::avancerAuto()
+{
+    qDebug() << "la fonction se lance";
+    _posImageCourante++;
+    if (_posImageCourante == nbImages())
+    {
+        _posImageCourante = 0;
+    }
+    afficher();
 }
