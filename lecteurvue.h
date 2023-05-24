@@ -30,6 +30,7 @@ public:
 
 
 
+
 private:
     Ui::LecteurVue *ui;
     unsigned _numDiaporamaCourant;   // numéro du diaporama courant, par défaut 0
@@ -37,6 +38,7 @@ private:
     unsigned int _posImageCourante;
     QTimer *timer;                   //chronomètre pour savoir quand les images doivent défgiler en mode auto
     bool _estManuel = true;           //indique si le si le diaporama est en mode manuel ou pas
+    int vitesseDefilement = 2000;       //valeur pour la vitesse de défilement
 
 public slots:
     void avancer(); //fait défiler le diaporama vers l'image suivante
@@ -51,6 +53,7 @@ public slots:
     bool getEtat();        //retourne l'état de la variable estManuel
     void setEtat(bool);    //modifie le bool _estManuel
     void avancerAuto();   //fais avancer le diaporama quand le mode auto est activé
+    void setVitesse(int);  //pour changer la vitesse de défilement
 
 };
 #endif // LECTEURVUE_H

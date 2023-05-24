@@ -2,6 +2,7 @@
 #include "qmessagebox.h"
 #include "ui_lecteurvue.h"
 #include "QString"
+#include "vitesse.h"
 
 LecteurVue::LecteurVue(QWidget *parent)
     : QMainWindow(parent)
@@ -93,7 +94,7 @@ void LecteurVue::lancer()
     setEtat(false);         //Met l'état en automatique
     creerBarStatus();       //Change la bar de status pour afficher le mode automatique
 
-    timer->start(2000); //on lance le chronomètre
+    timer->start(vitesseDefilement); //on lance le chronomètre
 }
 
 void LecteurVue::arreter()
@@ -136,7 +137,10 @@ void LecteurVue::charger()
 
 void LecteurVue::modifVitesse()
 {
-    qDebug() << "Le bouton modifier la vitesse marche";
+    Vitesse v;
+    // trouver comment mettre le slider à l'ancienne vitesse plus tard
+    v.exec();
+    vitesseDefilement = v.getVitesse();
 }
 
 void LecteurVue::propos()
@@ -198,6 +202,11 @@ void LecteurVue::changerDiaporama(unsigned int pNumDiaporama)
     {
         charger();
     }
+}
+
+void LecteurVue::setVitesse(int nouvelleVitesse)
+{
+    vitesseDefilement = nouvelleVitesse;
 }
 
 unsigned int LecteurVue::numDiaporamaCourant() //retourne le numéro du diaporama

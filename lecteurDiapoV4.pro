@@ -11,14 +11,17 @@ CONFIG += c++17
 SOURCES += \
     image.cpp \
     main.cpp \
-    lecteurvue.cpp
+    lecteurvue.cpp \
+    vitesse.cpp
 
 HEADERS += \
     image.h \
-    lecteurvue.h
+    lecteurvue.h \
+    vitesse.h
 
 FORMS += \
-    lecteurvue.ui
+    lecteurvue.ui \
+    vitesse.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
