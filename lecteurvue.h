@@ -7,6 +7,7 @@
 #include "image.h"
 #include "database.h"
 
+
 #define CHEMIN "F:/R202DevAplisAvecIHM/lecteurDiapoV5"
 
 QT_BEGIN_NAMESPACE

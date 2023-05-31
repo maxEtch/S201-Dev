@@ -5,6 +5,8 @@
 #include "vitesse.h"
 #include "QSqlQuery"
 
+#include "fenetrecharger.h"
+
 LecteurVue::LecteurVue(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LecteurVue)
@@ -110,22 +112,13 @@ void LecteurVue::arreter()
 
 void LecteurVue::charger()
 {
-
+    fenetreCharger c;
+    c.exec();
+    /*
 
     Image* imageACharger; //on créer un pointeur pour stocker temporairement les images
 
     viderDiaporama();
-
-    /*
-    imageACharger = new Image(3, "Personne", "Blanche Neige", ":/lecteurDiapoV2/Disney_4.gif"); //on met les infos d'une image dans imageACharger
-    _diaporama.push_back(imageACharger);    //on met imageACharger à la dernière place du diaporama
-    imageACharger = new Image(2, "Personne", "Cendrillon", ":/lecteurDiapoV2/Disney_45.gif");   //on met les infos d'une image dans imageACharger
-    _diaporama.push_back(imageACharger);    //on met imageACharger à la dernière place du diaporama
-    imageACharger = new Image(4, "Animal", "Mickey", ":/lecteurDiapoV2/Disney_19.gif"); //on met les infos d'une image dans imageACharger
-    _diaporama.push_back(imageACharger);    //on met imageACharger à la dernière place du diaporama
-    imageACharger = new Image(1, "Animal", "Bambi", ":/lecteurDiapoV2/Disney_3.gif"); //on met les infos d'une image dans imageACharger
-    _diaporama.push_back(imageACharger);    //on met imageACharger à la dernière place du diaporama
-    */
 
     QSqlQuery query;
     query.exec("SELECT rang, Diapos.titrePhoto, Diapos.uriPhoto, Familles.nomFamille, Diaporamas.vitesseDefilement, Diaporamas.`titre Diaporama` FROM `DiaposDansDiaporama` JOIN Diapos ON DiaposDansDiaporama.idDiapo = Diapos.idphoto JOIN Familles ON Diapos.idFam = Familles.idFamille JOIN Diaporamas ON DiaposDansDiaporama.idDiaporama = Diaporamas.idDiaporama WHERE DiaposDansDiaporama.`idDiaporama` = 1;");
@@ -153,6 +146,7 @@ void LecteurVue::charger()
     ui->bPrecedent->setDisabled(false);    //on active le bouton précédent
 
     afficher(); //on affiche l'image
+    */
 }
 
 void LecteurVue::modifVitesse()
