@@ -6,6 +6,7 @@
 #include <QTimer>
 #include "image.h"
 #include "database.h"
+#include "fenetrecharger.h"
 
 
 #define CHEMIN "F:/R202DevAplisAvecIHM/lecteurDiapoV5"
@@ -28,7 +29,7 @@ public:
     unsigned int numDiaporamaCourant(); //retourne le numero de l'image
     void afficher(); //affiche les informations sur lecteur-diaporama et image courante
     unsigned int nbImages();    //affiche la taille de _diaporama
-    void changerDiaporama(unsigned int pNumDiaporama);    //a faire    permet de choisir un diaporama, 0 si aucun diaporama souhaité
+    void changerDiaporama(unsigned int pNumDiaporama);  //  permet de choisir un diaporama, 0 si aucun diaporama souhaité
 
 
 
@@ -43,6 +44,7 @@ private:
     QTimer *timer;                   //chronomètre pour savoir quand les images doivent défgiler en mode auto
     bool _estManuel = true;           //indique si le si le diaporama est en mode manuel ou pas
     int vitesseDefilement = 2000;       //valeur pour la vitesse de défilement
+    fenetreCharger *listDiaporama;
 
 
 public slots:

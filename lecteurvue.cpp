@@ -112,16 +112,20 @@ void LecteurVue::arreter()
 
 void LecteurVue::charger()
 {
-    fenetreCharger c;
-    c.exec();
-    /*
+    listDiaporama = new fenetreCharger(this);
+    listDiaporama->exec();
+    _numDiaporamaCourant = listDiaporama->getDiaporama();
 
     Image* imageACharger; //on créer un pointeur pour stocker temporairement les images
 
     viderDiaporama();
 
     QSqlQuery query;
-    query.exec("SELECT rang, Diapos.titrePhoto, Diapos.uriPhoto, Familles.nomFamille, Diaporamas.vitesseDefilement, Diaporamas.`titre Diaporama` FROM `DiaposDansDiaporama` JOIN Diapos ON DiaposDansDiaporama.idDiapo = Diapos.idphoto JOIN Familles ON Diapos.idFam = Familles.idFamille JOIN Diaporamas ON DiaposDansDiaporama.idDiaporama = Diaporamas.idDiaporama WHERE DiaposDansDiaporama.`idDiaporama` = 1;");
+    query.prepare("SELECT rang, Diapos.titrePhoto, Diapos.uriPhoto, Familles.nomFamille, Diaporamas.vitesseDefilement, Diaporamas.`titre Diaporama` FROM `DiaposDansDiaporama` JOIN Diapos ON DiaposDansDiaporama.idDiapo = Diapos.idphoto JOIN Familles ON Diapos.idFam = Familles.idFamille JOIN Diaporamas ON DiaposDansDiaporama.idDiaporama = Diaporamas.idDiaporama WHERE DiaposDansDiaporama.`idDiaporama` = :idDiapo ;");
+
+    query.bindValue(":idDiapo", numDiaporamaCourant());
+
+    query.exec();
     for(int i = 0; query.next(); i++)
     {
         int rang = query.value(0).toInt(); //obtient la position de l'image
@@ -146,7 +150,7 @@ void LecteurVue::charger()
     ui->bPrecedent->setDisabled(false);    //on active le bouton précédent
 
     afficher(); //on affiche l'image
-    */
+
 }
 
 void LecteurVue::modifVitesse()
@@ -240,6 +244,7 @@ void LecteurVue::viderDiaporama()
     ui->bLancerDiapo->setDisabled(true);    //désactive le bouton lancer
     ui->bSuivant->setDisabled(true);        //désactive le bouton suivant
     ui->bPrecedent->setDisabled(true);      //désactive le bouton précédent
+    //ui->lTitreDiapo->setText("")
 }
 
 

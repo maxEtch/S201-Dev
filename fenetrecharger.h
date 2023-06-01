@@ -14,9 +14,15 @@ class fenetreCharger : public QDialog
 public:
     explicit fenetreCharger(QWidget *parent = nullptr);
     ~fenetreCharger();
+    unsigned int getDiaporama();
+
+public slots:
+    void renvoieNbDiapo();
 
 private:
     Ui::fenetreCharger *ui;
+    unsigned int diapoDemande;
+
 };
 
 #endif // FENETRECHARGER_H
