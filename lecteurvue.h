@@ -6,7 +6,7 @@
 #include <QTimer>
 #include "image.h"
 #include "database.h"
-#include "fenetrecharger.h"
+#include "diaporama.h"
 
 
 #define CHEMIN "F:/R202DevAplisAvecIHM/lecteurDiapoV5"
@@ -15,7 +15,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class LecteurVue; }
 QT_END_NAMESPACE
 
-typedef vector<Image*> Diaporama;
+typedef vector<Image*> diaporama;
 
 class LecteurVue : public QMainWindow
 {
@@ -39,12 +39,12 @@ public:
 private:
     Ui::LecteurVue *ui;
     unsigned _numDiaporamaCourant;   // numéro du diaporama courant, par défaut 0
-    Diaporama _diaporama;            // pointeurs vers les images du diaporama
+    diaporama _diaporama;            // pointeurs vers les images du diaporama
     unsigned int _posImageCourante;
     QTimer *timer;                   //chronomètre pour savoir quand les images doivent défgiler en mode auto
     bool _estManuel = true;           //indique si le si le diaporama est en mode manuel ou pas
     int vitesseDefilement = 2000;       //valeur pour la vitesse de défilement
-    fenetreCharger *listDiaporama;
+    Diaporama *listDiaporama;
 
 
 public slots:
@@ -56,7 +56,7 @@ public slots:
     void arreter(); //change le mode de défilement en manuel
     void propos();  //affiche une boîte de dialogue pour aider l'utilisateur
     void viderDiaporama();      //a faire       vide _diaporama de tous ses objets image et les delete
-    void triBulle(Diaporama &); //tri les images présentes dans le diaporama
+    void triBulle(diaporama &); //tri les images présentes dans le diaporama
     bool getEtat();        //retourne l'état de la variable estManuel
     void setEtat(bool);    //modifie le bool _estManuel
     void avancerAuto();   //fais avancer le diaporama quand le mode auto est activé

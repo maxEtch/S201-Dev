@@ -5,7 +5,6 @@
 #include "vitesse.h"
 #include "QSqlQuery"
 
-#include "fenetrecharger.h"
 
 LecteurVue::LecteurVue(QWidget *parent)
     : QMainWindow(parent)
@@ -112,7 +111,7 @@ void LecteurVue::arreter()
 
 void LecteurVue::charger()
 {
-    listDiaporama = new fenetreCharger(this);
+    listDiaporama = new Diaporama(this);
     listDiaporama->exec();
     _numDiaporamaCourant = listDiaporama->getDiaporama();
 
@@ -244,11 +243,11 @@ void LecteurVue::viderDiaporama()
     ui->bLancerDiapo->setDisabled(true);    //désactive le bouton lancer
     ui->bSuivant->setDisabled(true);        //désactive le bouton suivant
     ui->bPrecedent->setDisabled(true);      //désactive le bouton précédent
-    //ui->lTitreDiapo->setText("")
+    ui->lTitreDiapo->setText("titreDiapo");
 }
 
 
-void LecteurVue::triBulle(Diaporama &unDiaporama)
+void LecteurVue::triBulle(diaporama &unDiaporama)
 {
     bool estTrie = false;
     while (!estTrie)    //on continue le tri tant que le diaporama n'est pas trier

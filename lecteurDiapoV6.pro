@@ -11,7 +11,7 @@ CONFIG += c++17
 
 SOURCES += \
     database.cpp \
-    fenetrecharger.cpp \
+    diaporama.cpp \
     image.cpp \
     main.cpp \
     lecteurvue.cpp \
@@ -19,13 +19,13 @@ SOURCES += \
 
 HEADERS += \
     database.h \
-    fenetrecharger.h \
+    diaporama.h \
     image.h \
     lecteurvue.h \
     vitesse.h
 
 FORMS += \
-    fenetrecharger.ui \
+    diaporama.ui \
     lecteurvue.ui \
     vitesse.ui
 
