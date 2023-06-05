@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/td6">
-        <file>ampouleAllumee2.PNG</file>
-        <file>ampouleEteinte2.PNG</file>
-    </qresource>
-</RCC>
