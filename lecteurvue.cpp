@@ -3,7 +3,6 @@
 #include "ui_lecteurvue.h"
 #include "QString"
 #include "vitesse.h"
-#include "QSqlQuery"
 
 LecteurVue::LecteurVue(QWidget *parent)
     : QMainWindow(parent)
@@ -34,8 +33,7 @@ LecteurVue::LecteurVue(QWidget *parent)
     _numDiaporamaCourant = 0;
     _posImageCourante = 0;
 
-    Database *mabd = new Database;
-    mabd->OpenDataBase();
+
 }
 
 LecteurVue::~LecteurVue()
@@ -101,6 +99,7 @@ void LecteurVue::lancer()
 
 void LecteurVue::arreter()
 {
+    qDebug() << "Le bouton arreter marche";
     ui->bArreterDiapo->setEnabled(false);   //Désactive le bouton Arreter le diaporama
     setEtat(true);         //Met l'état en manuel
     creerBarStatus();       //Change la bar de status pour afficher le mode automatique
@@ -116,7 +115,6 @@ void LecteurVue::charger()
 
     viderDiaporama();
 
-    /*
     imageACharger = new Image(3, "Personne", "Blanche Neige", ":/lecteurDiapoV2/Disney_4.gif"); //on met les infos d'une image dans imageACharger
     _diaporama.push_back(imageACharger);    //on met imageACharger à la dernière place du diaporama
     imageACharger = new Image(2, "Personne", "Cendrillon", ":/lecteurDiapoV2/Disney_45.gif");   //on met les infos d'une image dans imageACharger
@@ -125,24 +123,6 @@ void LecteurVue::charger()
     _diaporama.push_back(imageACharger);    //on met imageACharger à la dernière place du diaporama
     imageACharger = new Image(1, "Animal", "Bambi", ":/lecteurDiapoV2/Disney_3.gif"); //on met les infos d'une image dans imageACharger
     _diaporama.push_back(imageACharger);    //on met imageACharger à la dernière place du diaporama
-    */
-
-    QSqlQuery query;
-    query.exec("SELECT rang, Diapos.titrePhoto, Diapos.uriPhoto, Familles.nomFamille, Diaporamas.vitesseDefilement, Diaporamas.`titre Diaporama` FROM `DiaposDansDiaporama` JOIN Diapos ON DiaposDansDiaporama.idDiapo = Diapos.idphoto JOIN Familles ON Diapos.idFam = Familles.idFamille JOIN Diaporamas ON DiaposDansDiaporama.idDiaporama = Diaporamas.idDiaporama WHERE DiaposDansDiaporama.`idDiaporama` = 1;");
-    for(int i = 0; query.next(); i++)
-    {
-        int rang = query.value(0).toInt(); //obtient la position de l'image
-        string titre = query.value(1).toString().toStdString(); //obtient son titre
-        string uri = (CHEMIN + query.value(2).toString().toStdString()); //obtient le chemin de l'image
-        string categorie = query.value(3).toString().toStdString(); //obtient la catégorie
-        int vitesse = query.value(4).toInt() * 1000; //obtient la vitesse de défilement de l'image
-
-        ui->lTitreDiapo->setText(query.value(5).toString());    //affiche le titre du diapo
-        setVitesse(vitesse);    //change la vitesse
-
-        imageACharger = new Image(rang, categorie, titre, uri);
-        _diaporama.push_back(imageACharger); //met les images dans le diaporama
-    }
 
     triBulle(this->_diaporama); //on trie le diaporama
 
