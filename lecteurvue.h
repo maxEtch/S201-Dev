@@ -5,6 +5,9 @@
 #include <QWidget>
 #include <QTimer>
 #include "image.h"
+#include "database.h"
+
+#define CHEMIN "F:/R202DevAplisAvecIHM/lecteurDiapoV5"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LecteurVue; }
@@ -39,6 +42,7 @@ private:
     QTimer *timer;                   //chronomètre pour savoir quand les images doivent défgiler en mode auto
     bool _estManuel = true;           //indique si le si le diaporama est en mode manuel ou pas
     int vitesseDefilement = 2000;       //valeur pour la vitesse de défilement
+
 
 public slots:
     void avancer(); //fait défiler le diaporama vers l'image suivante

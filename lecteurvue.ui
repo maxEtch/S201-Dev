@@ -79,7 +79,7 @@
           </property>
           <property name="icon">
            <iconset resource="cartesDisney/image.qrc">
-            <normaloff>:/lecteurDiapoV2/Arrow-PNG-Pic-inverse.png</normaloff>:/lecteurDiapoV2/Arrow-PNG-Pic-inverse.png</iconset>
+            <normaloff>:/carteDisney/Arrow-PNG-Pic-inverse.png</normaloff>:/carteDisney/Arrow-PNG-Pic-inverse.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -183,7 +183,7 @@
           </property>
           <property name="icon">
            <iconset resource="cartesDisney/image.qrc">
-            <normaloff>:/lecteurDiapoV2/Arrow-PNG-Pic.png</normaloff>:/lecteurDiapoV2/Arrow-PNG-Pic.png</iconset>
+            <normaloff>:/carteDisney/Arrow-PNG-Pic.png</normaloff>:/carteDisney/Arrow-PNG-Pic.png</iconset>
           </property>
           <property name="iconSize">
            <size>

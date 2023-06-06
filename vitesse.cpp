@@ -9,7 +9,7 @@ Vitesse::Vitesse(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->horizontalSlider,SIGNAL(valueChanged(int)),this, SLOT(changerText(int)));
-    connect(ui->buttonBox, SIGNAL(accepted()),this, SLOT(changerVitesse()));
+    connect(ui->buttonBox, SIGNAL(accepted()),this, SLOT(close()));
 
 
 }

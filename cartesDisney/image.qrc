@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/lecteurDiapoV2">
+    <qresource prefix="/carteDisney">
         <file>Disney_0.gif</file>
         <file>Disney_0.png</file>
         <file>Disney_1.gif</file>
