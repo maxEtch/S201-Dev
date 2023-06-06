@@ -76,7 +76,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>//haya/dossiersetud_BaieSsd/amarrier002/Desktop/image diapo/Arrow-PNG-Pic-inverse.png</normaloff>//haya/dossiersetud_BaieSsd/amarrier002/Desktop/image diapo/Arrow-PNG-Pic-inverse.png</iconset>
+            <normaloff>cartesDisney/Arrow-PNG-Pic-inverse.png</normaloff>cartesDisney/Arrow-PNG-Pic-inverse.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -168,7 +168,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>//haya/dossiersetud_BaieSsd/amarrier002/Desktop/image diapo/Arrow-PNG-Pic.png</normaloff>//haya/dossiersetud_BaieSsd/amarrier002/Desktop/image diapo/Arrow-PNG-Pic.png</iconset>
+            <normaloff>cartesDisney/Arrow-PNG-Pic.png</normaloff>cartesDisney/Arrow-PNG-Pic.png</iconset>
           </property>
           <property name="iconSize">
            <size>
