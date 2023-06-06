@@ -78,8 +78,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>//haya/dossiersetud_BaieSsd/amarrier002/Desktop/image diapo/Arrow-PNG-Pic-inverse.png</normaloff>//haya/dossiersetud_BaieSsd/amarrier002/Desktop/image diapo/Arrow-PNG-Pic-inverse.png</iconset>
+           <iconset resource="cartesDisney/image.qrc">
+            <normaloff>:/lecteurDiapoV2/Arrow-PNG-Pic-inverse.png</normaloff>:/lecteurDiapoV2/Arrow-PNG-Pic-inverse.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -182,8 +182,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>//haya/dossiersetud_BaieSsd/amarrier002/Desktop/image diapo/Arrow-PNG-Pic.png</normaloff>//haya/dossiersetud_BaieSsd/amarrier002/Desktop/image diapo/Arrow-PNG-Pic.png</iconset>
+           <iconset resource="cartesDisney/image.qrc">
+            <normaloff>:/lecteurDiapoV2/Arrow-PNG-Pic.png</normaloff>:/lecteurDiapoV2/Arrow-PNG-Pic.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -366,6 +366,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="cartesDisney/image.qrc"/>
+ </resources>
  <connections/>
 </ui>

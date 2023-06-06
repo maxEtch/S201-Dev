@@ -58,5 +58,7 @@
         <file>Disney_tapis.gif</file>
         <file>Disney_tapis.png</file>
         <file>Disney_tapisOld.png</file>
+        <file>Arrow-PNG-Pic.png</file>
+        <file>Arrow-PNG-Pic-inverse.png</file>
     </qresource>
 </RCC>
